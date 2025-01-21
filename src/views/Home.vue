@@ -45,12 +45,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Scroll Indicator -->
-      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-2 z-10">
-        <div class="h-12 w-0.5 bg-black animate-pulse"></div>
-        <span class="text-sm font-bold tracking-widest">SCROLL</span>
-      </div>
     </section>
 
     <!-- Main Content -->
