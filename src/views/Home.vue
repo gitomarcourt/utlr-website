@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen">
     <!-- Hero Section -->
-    <section class="min-h-screen relative bg-white">
+    <section class="h-[70vh] relative bg-white">
       <!-- Video Background -->
       <div class="absolute inset-0 w-full h-full">
         <video
@@ -16,9 +16,11 @@
       </div>
 
       <!-- Content -->
-      <div class="relative z-10 min-h-screen flex items-center justify-center px-4">
+      <div class="relative z-10 h-full flex items-center justify-center px-4">
         <div class="text-center">
-          <h1 class="text-[5rem] xs:text-[6rem] sm:text-[8rem] md:text-[12rem] lg:text-[16rem] xl:text-[20rem] font-bold tracking-tighter text-black leading-none">UTLR®</h1>
+          <h1 class="text-[5rem] xs:text-[6rem] sm:text-[8rem] md:text-[12rem] lg:text-[16rem] xl:text-[20rem] font-bold tracking-tighter text-black leading-none">
+            UTLR<span class="text-[0.3em] align-super font-normal opacity-100">®</span>
+          </h1>
         </div>
       </div>
     </section>
