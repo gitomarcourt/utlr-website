@@ -153,7 +153,6 @@ onMounted(() => {
   // Animation des nombres avec GSAP
   const numbers = document.querySelectorAll('.number-animation')
   numbers.forEach((number) => {
-    const finalValue = parseInt(number.textContent || '0')
     gsap.from(number, {
       textContent: 0,
       duration: 2,
