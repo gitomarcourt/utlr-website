@@ -113,23 +113,7 @@
       <div class="container mx-auto px-4">
         <div class="max-w-2xl mx-auto text-center">
           <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 md:mb-12">RESTEZ INFORMÉ</h2>
-          <form @submit.prevent="submitNewsletter" class="space-y-4 md:space-y-6">
-            <div class="relative">
-              <input
-                v-model="email"
-                type="email"
-                required
-                placeholder="Votre adresse email"
-                class="w-full px-4 sm:px-6 py-3 sm:py-4 border-2 border-black bg-transparent focus:outline-none text-base sm:text-lg"
-              />
-            </div>
-            <button
-              type="submit"
-              class="w-full sm:w-auto px-8 sm:px-12 py-3 sm:py-4 bg-black text-white font-bold hover:bg-white hover:text-black border-2 border-black transition-colors text-base sm:text-lg"
-            >
-              S'INSCRIRE
-            </button>
-          </form>
+          <NewsletterForm />
         </div>
       </div>
     </section>
@@ -140,39 +124,34 @@
 import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import NewsletterForm from '../components/NewsletterForm.vue'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const email = ref('')
-const date = ref(null)
-const distance1 = ref(null)
-const distance2 = ref(null)
-const kids = ref(null)
+const date = ref<HTMLElement | null>(null)
+const distance1 = ref<HTMLElement | null>(null)
+const distance2 = ref<HTMLElement | null>(null)
+const kids = ref<HTMLElement | null>(null)
 
 onMounted(() => {
-  // Animation des nombres avec GSAP
-  const numbers = document.querySelectorAll('.number-animation')
-  numbers.forEach((number) => {
-    gsap.from(number, {
-      textContent: 0,
-      duration: 2,
-      ease: 'power2.out',
-      snap: { textContent: 1 },
-      scrollTrigger: {
-        trigger: number,
-        start: 'top center+=100',
-        toggleActions: 'play none none reverse'
-      }
-    })
+  // Animation des nombres
+  const elements = [date.value, distance1.value, distance2.value, kids.value]
+  elements.forEach(element => {
+    if (element) {
+      const endValue = parseInt(element.textContent || '0')
+      gsap.fromTo(
+        element,
+        { textContent: '0' },
+        {
+          duration: 2,
+          textContent: endValue,
+          roundProps: 'textContent',
+          ease: 'power1.inOut',
+        }
+      )
+    }
   })
 })
-
-const submitNewsletter = async () => {
-  if (email.value) {
-    console.log('Newsletter subscription:', email.value)
-    email.value = ''
-  }
-}
 </script>
 
 <style scoped>
