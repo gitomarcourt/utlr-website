@@ -104,8 +104,6 @@
               Coureuses et coureurs affûtés, citadines et citadins curieux de porter un regard décalé sur la ville, l'UTLR® propose plusieurs tracés adaptés à tous les niveaux. Des parcours avec la salle de concert de la Sirène comme point de départ et d'arrivée, pour que chacunes et chacunes puissent trouver basket à son pied.
             </p>
           </div>
-
-
         </div>
       </div>
     </section>
@@ -135,10 +133,6 @@
         </div>
       </div>
     </section>
-              <!-- Organisateur -->
-              <div class="pt-8 md:pt-12 mt-8 md:mt-12 border-t border-gray-200 text-center">
-            <p class="text-sm sm:text-base">Un événement organisé par <strong>Arcanes Events</strong></p>
-          </div>
   </div>
 </template>
 

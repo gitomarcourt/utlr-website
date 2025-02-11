@@ -2,19 +2,21 @@
   <div class="min-h-screen bg-white">
     <!-- Page Content -->
     <main>
-      <router-view v-slot="{ Component }">
-        <component :is="Component" />
-      </router-view>
+      <router-view></router-view>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white py-20">
-      <div class="container">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start"></div>
-        
-        <!-- Copyright -->
-        <div class="mt-16 pt-8 border-t-2 border-black text-center text-sm">
-          <p>&copy; 2026 UTLR®. Tous droits réservés.</p>
+    <footer class="py-12 md:py-16 bg-black text-white">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+          <div class="text-center md:text-left">
+            <p class="text-sm tracking-widest">Un événement organisé par</p>
+            <p class="text-lg md:text-xl font-bold tracking-wider mt-1">ARCANES EVENTS</p>
+          </div>
+          <div class="text-center md:text-right">
+            <p class="text-sm tracking-widest">UTLR® 2026</p>
+            <p class="text-sm tracking-widest mt-1">LA ROCHELLE</p>
+          </div>
         </div>
       </div>
     </footer>
