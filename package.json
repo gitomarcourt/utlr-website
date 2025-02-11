@@ -11,10 +11,11 @@
   "dependencies": {
     "@headlessui/vue": "^1.7.23",
     "@heroicons/vue": "^2.2.0",
-    "@vercel/blob": "^0.27.1",
+    "@neondatabase/serverless": "^0.10.4",
     "@vercel/node": "^5.1.2",
     "@vueuse/core": "^12.5.0",
     "autoprefixer": "^10.4.20",
+    "dotenv": "^16.4.7",
     "gsap": "^3.12.7",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.4.17",

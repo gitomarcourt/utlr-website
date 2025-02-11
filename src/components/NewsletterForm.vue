@@ -6,10 +6,21 @@
           v-model="email"
           type="email"
           required
+          pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+          title="Veuillez entrer une adresse email valide"
           placeholder="Votre adresse email"
-          class="w-full px-4 sm:px-6 py-3 sm:py-4 border-2 border-black bg-transparent focus:outline-none text-base sm:text-lg"
+          class="w-full px-4 sm:px-6 py-3 sm:py-4 border-2"
+          :class="{
+            'border-black': !error && !emailError,
+            'border-red-600': error || emailError,
+            'bg-transparent': true
+          }"
           :disabled="isLoading"
+          @input="validateEmail"
         />
+        <div v-if="emailError" class="text-red-600 text-sm mt-1">
+          {{ emailError }}
+        </div>
       </div>
       <button
         type="submit"
@@ -32,39 +43,44 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { subscribeToNewsletter } from '../lib/newsletter'
 
 const email = ref('')
 const isLoading = ref(false)
 const message = ref('')
 const error = ref(false)
+const emailError = ref('')
+
+const validateEmail = () => {
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+  if (!email.value) {
+    emailError.value = 'L\'adresse email est requise'
+  } else if (!emailRegex.test(email.value)) {
+    emailError.value = 'Veuillez entrer une adresse email valide'
+  } else {
+    emailError.value = ''
+  }
+}
 
 const handleSubmit = async () => {
+  validateEmail()
+  if (emailError.value) {
+    return
+  }
+
   isLoading.value = true
   message.value = ''
   error.value = false
 
   try {
-    const response = await fetch('/api/newsletter-subscribe', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email: email.value }),
-    })
-
-    const data = await response.json()
-
-    if (!response.ok) {
-      throw new Error(data.error || 'Une erreur est survenue')
-    }
-
+    await subscribeToNewsletter(email.value)
     message.value = 'Merci pour votre inscription !'
     email.value = ''
+    emailError.value = ''
   } catch (err: any) {
+    console.error('Erreur détaillée:', err)
     error.value = true
-    message.value = err.message === 'Email already subscribed' 
-      ? 'Cette adresse email est déjà inscrite à notre newsletter.'
-      : 'Une erreur est survenue lors de l\'inscription. Veuillez réessayer.'
+    message.value = err.message || 'Une erreur est survenue lors de l\'inscription. Veuillez réessayer.'
   } finally {
     isLoading.value = false
   }
