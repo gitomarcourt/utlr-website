@@ -179,26 +179,3 @@ nav {
     font-size: 6rem;
   }
 }
-
-/* Styles pour les logos du footer */
-footer img {
-  max-width: 100%;
-  height: auto;
-  transition: opacity 0.3s ease;
-}
-
-/* Style spécifique pour le logo La Sirène */
-footer img[alt="La Sirène"] {
-  filter: brightness(0) invert(1);
-  mix-blend-mode: screen;
-}
-
-/* Style spécifique pour le logo Port Atlantique */
-footer img[alt="Port Atlantique"] {
-  filter: brightness(0) invert(1);
-  mix-blend-mode: screen;
-}
-
-footer img:hover {
-  opacity: 0.8;
-}

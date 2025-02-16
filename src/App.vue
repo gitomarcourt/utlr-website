@@ -25,12 +25,16 @@
 
           <!-- Colonne 2: La Sirène -->
           <div class="flex justify-center">
-            <img :src="logoLaSirene" alt="La Sirène" class="w-48 h-auto object-contain" />
+            <div class="w-48 h-24 bg-white rounded-lg p-4 flex items-center justify-center">
+              <img :src="logoLaSirene" alt="La Sirène" class="max-w-full max-h-full" style="object-fit: contain;" />
+            </div>
           </div>
 
           <!-- Colonne 3: Port Atlantique -->
           <div class="flex justify-center">
-            <img :src="logoPortAtlantique" alt="Port Atlantique" class="w-48 h-auto object-contain" />
+            <div class="w-48 h-24 bg-white rounded-lg p-4 flex items-center justify-center">
+              <img :src="logoPortAtlantique" alt="Port Atlantique" class="max-w-full max-h-full" style="object-fit: contain;" />
+            </div>
           </div>
 
           <!-- Colonne 4: UTLR -->
@@ -45,6 +49,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import logoArcanesEvents from './assets/images/Logo-Arcanes-Events-paysage-blanc.png'
 import logoLaSirene from './assets/images/logo-la-sirene.jpg'
 import logoPortAtlantique from './assets/images/logo-port-atlantique.png'
@@ -52,7 +57,7 @@ import iconLinkedin from './assets/images/linkedin.svg'
 import iconFacebook from './assets/images/facebook.svg'
 </script>
 
-<style>
+<style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap');
 
 .container {
