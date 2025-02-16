@@ -19,7 +19,7 @@
       <div class="relative z-10 h-full flex items-center justify-center px-4">
         <div class="text-center">
           <h1 class="text-[5rem] xs:text-[6rem] sm:text-[8rem] md:text-[12rem] lg:text-[16rem] xl:text-[20rem] font-bold tracking-tighter text-black leading-none">
-            UTLR<span class="text-[0.3em] align-super font-normal opacity-100">®</span>
+            UTLR<span class="registered">®</span>
           </h1>
         </div>
       </div>
@@ -87,7 +87,7 @@
           <div>
             <h2 class="text-xl sm:text-2xl font-bold mb-4">Un nouveau rendez-vous running en 2026</h2>
             <p class="text-base sm:text-lg leading-relaxed">
-              Le samedi 31 janvier 2026, Arcanes Events lance la première édition de l'UTLR®, (acronyme de Urban Trail La Rochelle®), une course à pied populaire et responsable, tracée au cœur des quartiers de La Pallice et de Port-Neuf à La Rochelle.
+              Le samedi 31 janvier 2026, Arcanes Events lance la première édition de l'UTLR<span class="registered">®</span>, (acronyme de Urban Trail La Rochelle<span class="registered">®</span>), une course à pied populaire et responsable, tracée au cœur des quartiers de La Pallice et de Port-Neuf à La Rochelle.
             </p>
           </div>
 
@@ -103,7 +103,7 @@
           <div>
             <h2 class="text-xl sm:text-2xl font-bold mb-4">Des parcours pour toutes et tous au départ de La Sirène</h2>
             <p class="text-base sm:text-lg leading-relaxed">
-              Coureuses et coureurs affûtés, citadines et citadins curieux de porter un regard décalé sur la ville, l'UTLR® propose plusieurs tracés adaptés à tous les niveaux. Des parcours avec la salle de concert de la Sirène comme point de départ et d'arrivée, pour que chacunes et chacunes puissent trouver basket à son pied.
+              Coureuses et coureurs affûtés, citadines et citadins curieux de porter un regard décalé sur la ville, l'UTLR<span class="registered">®</span> propose plusieurs tracés adaptés à tous les niveaux. Des parcours avec la salle de concert de la Sirène comme point de départ et d'arrivée, pour que chacunes et chacunes puissent trouver basket à son pied.
             </p>
           </div>
         </div>
@@ -163,5 +163,11 @@ input::placeholder {
 
 .number-animation {
   display: inline-block;
+}
+
+.registered {
+  font-size: 0.3em;
+  font-weight: normal;
+  opacity: 0.5;
 }
 </style>

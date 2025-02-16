@@ -1,5 +1,8 @@
 <template>
   <div class="newsletter-form">
+    <p class="text-base sm:text-lg mb-6 max-w-2xl mx-auto">
+      Vous souhaitez être informé en avant-première de l'ouverture des inscriptions et des actualités de l'UTLR<span class="registered">®</span> ? Inscrivez-vous !
+    </p>
     <form @submit.prevent="handleSubmit" class="space-y-4 md:space-y-6">
       <div class="relative">
         <input
@@ -22,10 +25,25 @@
           {{ emailError }}
         </div>
       </div>
+
+      <!-- Case RGPD -->
+      <div class="flex items-start gap-2">
+        <input
+          type="checkbox"
+          id="rgpd"
+          v-model="rgpdAccepted"
+          required
+          class="mt-1"
+        />
+        <label for="rgpd" class="text-sm text-left">
+          En cochant cette case, j'accepte que mes données personnelles soient utilisées pour me tenir informé des actualités de l'UTLR<span class="registered">®</span>. Pour plus d'informations sur le traitement de vos données et vos droits, consultez notre <a href="/mentions-legales" class="underline hover:text-gray-600">politique de confidentialité</a>.
+        </label>
+      </div>
+
       <button
         type="submit"
         class="w-full sm:w-auto px-8 sm:px-12 py-3 sm:py-4 bg-black text-white font-bold hover:bg-white hover:text-black border-2 border-black transition-colors text-base sm:text-lg"
-        :disabled="isLoading"
+        :disabled="isLoading || !rgpdAccepted"
       >
         {{ isLoading ? 'EN COURS...' : 'S\'INSCRIRE' }}
       </button>
@@ -50,6 +68,7 @@ const isLoading = ref(false)
 const message = ref('')
 const error = ref(false)
 const emailError = ref('')
+const rgpdAccepted = ref(false)
 
 const validateEmail = () => {
   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
@@ -64,7 +83,7 @@ const validateEmail = () => {
 
 const handleSubmit = async () => {
   validateEmail()
-  if (emailError.value) {
+  if (emailError.value || !rgpdAccepted.value) {
     return
   }
 
@@ -80,7 +99,11 @@ const handleSubmit = async () => {
   } catch (err: any) {
     console.error('Erreur détaillée:', err)
     error.value = true
-    message.value = err.message || 'Une erreur est survenue lors de l\'inscription. Veuillez réessayer.'
+    if (err.message.includes('already exists')) {
+      message.value = 'Cette adresse email est déjà inscrite à notre newsletter.'
+    } else {
+      message.value = 'Une erreur est survenue lors de l\'inscription. Veuillez réessayer.'
+    }
   } finally {
     isLoading.value = false
   }

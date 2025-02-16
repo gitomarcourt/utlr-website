@@ -3,7 +3,12 @@
 @tailwind utilities;
 
 /* Import des polices */
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');
+@font-face {
+  font-family: 'Agharti Test';
+  src: url('/fonts/AghartiFamilyTest-SemiCondensedExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
 
 :root {
   --primary-black: #000000;
@@ -20,8 +25,10 @@
   }
 
   h1 {
-    @apply text-6xl md:text-8xl font-bold uppercase tracking-tighter;
-    letter-spacing: -0.02em;
+    @apply text-6xl md:text-8xl uppercase tracking-tighter;
+    font-family: 'Agharti Test', sans-serif !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.2em;
   }
 
   h2 {
@@ -104,11 +111,18 @@
   .stats-container:hover::before {
     @apply scale-95;
   }
+
+  .number-animation {
+    font-family: 'Agharti Test', sans-serif !important;
+    font-weight: 800 !important;
+  }
 }
 
 /* Header styles */
 .header-number {
   @apply text-[120px] md:text-[200px] font-bold leading-none;
+  font-family: 'Agharti Test', sans-serif;
+  font-weight: 800;
   -webkit-text-stroke: 2px black;
   color: transparent;
 }
@@ -151,9 +165,40 @@ nav {
   @apply bg-white border-b-2 border-black;
 }
 
+/* Style pour le symbole registered trademark */
+.registered {
+  font-size: 0.65em;
+  vertical-align: super;
+  position: relative;
+  top: -0.1em;
+}
+
 /* Breakpoint personnalisé pour les très petits écrans */
 @media (min-width: 400px) {
   .xs\:text-\[6rem\] {
     font-size: 6rem;
   }
+}
+
+/* Styles pour les logos du footer */
+footer img {
+  max-width: 100%;
+  height: auto;
+  transition: opacity 0.3s ease;
+}
+
+/* Style spécifique pour le logo La Sirène */
+footer img[alt="La Sirène"] {
+  filter: brightness(0) invert(1);
+  mix-blend-mode: screen;
+}
+
+/* Style spécifique pour le logo Port Atlantique */
+footer img[alt="Port Atlantique"] {
+  filter: brightness(0) invert(1);
+  mix-blend-mode: screen;
+}
+
+footer img:hover {
+  opacity: 0.8;
 }
