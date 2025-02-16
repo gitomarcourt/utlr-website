@@ -49,7 +49,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import logoArcanesEvents from './assets/images/Logo-Arcanes-Events-paysage-blanc.png'
 import logoLaSirene from './assets/images/logo-la-sirene.jpg'
 import logoPortAtlantique from './assets/images/logo-port-atlantique.png'
