@@ -1,4 +1,4 @@
-import { neon } from "@neondatabase/serverless";
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzYqj3Mv9KI_RjxudTrRBrGYHpOEmy6IEHVPToZvr0-Jq33TMMNk0myVhXMb9BJF3KP/exec';
 
 function isValidEmail(email: string): boolean {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -10,13 +10,29 @@ export async function subscribeToNewsletter(email: string) {
         throw new Error('Adresse email invalide');
     }
 
-    const databaseUrl = import.meta.env.VITE_DATABASE_URL;
-    if (!databaseUrl) {
-        throw new Error('VITE_DATABASE_URL environment variable is not defined');
+    try {
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email })
+        });
+
+        if (!response.ok) {
+            throw new Error('Erreur réseau');
+        }
+
+        const data = await response.json();
+        
+        if (data.status === 'error') {
+            throw new Error(data.message);
+        }
+
+        return data;
+    } catch (error) {
+        console.error('Erreur lors de l\'inscription:', error);
+        throw error;
     }
-    console.log(databaseUrl);
-    const sql = neon(databaseUrl);
-    const data = await sql`INSERT INTO newsletter_subscribers 
-    (email) VALUES (${email});`;
-    return data;
 }

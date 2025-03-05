@@ -1,0 +1,36 @@
+// Code à copier dans Google Apps Script
+function doPost(e) {
+  // Paramètres de sécurité CORS
+  var headers = {
+    "Access-Control-Allow-Origin": "https://utlr.fr",
+    "Access-Control-Allow-Methods": "POST",
+    "Access-Control-Allow-Headers": "Content-Type"
+  };
+  
+  try {
+    // Récupérer les données
+    var data = JSON.parse(e.postData.contents);
+    var email = data.email;
+    
+    // ID de votre Google Sheet
+    var sheet = SpreadsheetApp.openById('VOTRE_SHEET_ID').getActiveSheet();
+    
+    // Ajouter l'email et la date
+    sheet.appendRow([email, new Date()]);
+    
+    return ContentService.createTextOutput(JSON.stringify({
+      "status": "success",
+      "message": "Email enregistré"
+    }))
+    .setMimeType(ContentService.MimeType.JSON)
+    .setHeaders(headers);
+    
+  } catch(error) {
+    return ContentService.createTextOutput(JSON.stringify({
+      "status": "error",
+      "message": error.toString()
+    }))
+    .setMimeType(ContentService.MimeType.JSON)
+    .setHeaders(headers);
+  }
+}
