@@ -15,7 +15,7 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: Home,
-      meta: { requiresAuth: true }
+      meta: { requiresAuth: false }
     },
     {
       path: '/rgpd',
@@ -26,7 +26,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, _, next) => {
-  const isAuthenticated = localStorage.getItem('utlr_auth') === 'false'
+  const isAuthenticated = localStorage.getItem('utlr_auth') === 'true'
   
   if (to.meta.requiresAuth && !isAuthenticated) {
     next('/login')
