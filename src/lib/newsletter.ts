@@ -1,4 +1,4 @@
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzMSqrj7EJOtLvC9ZhjTApFi-h_J5gXqjMxf8D8Rd2sFvV_t4fSqWb84geb3yZRGJMX/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxrBzJMtbULDJU5dZ1FmZSI4HmEwctVehfnVt0CqqAS3nqXf3NdBN6crMTLq5L0-S74/exec';
 
 function isValidEmail(email: string): boolean {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
