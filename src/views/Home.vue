@@ -11,7 +11,7 @@
           muted
           playsinline
         >
-          <source src="../assets/videos/hero-background.mp4" type="video/mp4">
+          <source src="../assets/videos/hero-background.webm" type="video/mp4">
         </video>
       </div>
 
@@ -82,29 +82,41 @@
     <!-- Information Sections -->
     <section class="py-16 md:py-24 bg-white">
       <div class="container mx-auto px-4">
-        <div class="max-w-3xl mx-auto space-y-16 md:space-y-20">
+        <div class="max-w-5xl mx-auto space-y-20">
           <!-- Section 1 -->
-          <div>
-            <h2 class="text-xl sm:text-2xl font-bold mb-4">Un nouveau rendez-vous running en 2026</h2>
-            <p class="text-base sm:text-lg leading-relaxed">
-              Le samedi 31 janvier 2026, Arcanes Events lance la première édition de l'UTLR<span class="registered">®</span>, (acronyme de Urban Trail La Rochelle<span class="registered">®</span>), une course à pied populaire et responsable, tracée au cœur des quartiers de La Pallice et de Port-Neuf à La Rochelle.
-            </p>
+          <div class="flex flex-col md:flex-row items-start gap-8">
+            <div class="w-full md:w-1/3">
+              <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">La ville comme vous ne l'avez jamais courue</h2>
+            </div>
+            <div class="w-full md:w-2/3 border-l-2 border-black pl-8">
+              <p class="text-base sm:text-lg leading-relaxed">
+                Le 31 janvier 2026, Arcanes Events lance la première édition de l'UTLR<span class="registered">®</span>. Cet Urban Trail unique vous invite à découvrir La Rochelle sous un nouveau jour, avec un parcours urbain inédit à travers les quartiers emblématiques de La Pallice et de Port-Neuf. Une expérience sportive et culturelle qui allie performance et découverte du patrimoine rochelais.
+              </p>
+            </div>
           </div>
 
           <!-- Section 2 -->
-          <div>
-            <h2 class="text-xl sm:text-2xl font-bold mb-4">Un autre regard sur la ville et son environnement</h2>
-            <p class="text-base sm:text-lg leading-relaxed">
-              L'urban trail, c'est bien plus qu'une simple course. C'est un parcours urbain à travers chemins, rues, infrastructures et lieux emblématiques de l'ouest de la cité maritime. Une façon originale de découvrir la ville, ses acteurs et son environnement citadin, portuaire et industriel, en passant par certains sites et itinéraires habituellement fermés au public.
-            </p>
+          <div class="flex flex-col md:flex-row items-start gap-8">
+            <div class="w-full md:w-1/3">
+              <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Une aventure urbaine unique</h2>
+            </div>
+            <div class="w-full md:w-2/3 border-l-2 border-black pl-8">
+              <p class="text-base sm:text-lg leading-relaxed">
+                Plongez au cœur d'un parcours exceptionnel mêlant passages secrets, escaliers historiques et sites industriels habituellement fermés au public. L'UTLR<span class="registered">®</span> vous fait vivre une expérience immersive où chaque kilomètre révèle une nouvelle facette de la ville : des quais animés du port aux ruelles pittoresques, en passant par des lieux emblématiques réinventés pour l'occasion.
+              </p>
+            </div>
           </div>
 
           <!-- Section 3 -->
-          <div>
-            <h2 class="text-xl sm:text-2xl font-bold mb-4">Des parcours pour toutes et tous au départ de La Sirène</h2>
-            <p class="text-base sm:text-lg leading-relaxed">
-              Coureuses et coureurs affûtés, citadines et citadins curieux de porter un regard décalé sur la ville, l'UTLR<span class="registered">®</span> propose plusieurs tracés adaptés à tous les niveaux. Des parcours avec la salle de concert de la Sirène comme point de départ et d'arrivée, pour que chacunes et chacunes puissent trouver basket à son pied.
-            </p>
+          <div class="flex flex-col md:flex-row items-start gap-8">
+            <div class="w-full md:w-1/3">
+              <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Un événement accessible à tous</h2>
+            </div>
+            <div class="w-full md:w-2/3 border-l-2 border-black pl-8">
+              <p class="text-base sm:text-lg leading-relaxed">
+                Que vous soyez coureur aguerri ou amateur de découvertes urbaines, l'UTLR<span class="registered">®</span> s'adapte à votre niveau avec deux parcours de 6 et 11 km. Au départ de La Sirène, mythique salle de concert rochelaise, vivez une expérience sportive unique où l'effort se mêle au plaisir de l'exploration. Une course où chaque foulée vous rapproche d'une nouvelle perspective sur votre ville.
+              </p>
+            </div>
           </div>
         </div>
       </div>

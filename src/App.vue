@@ -10,10 +10,10 @@
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-12 items-center">
           <!-- Colonne 1: Organisateur -->
-          <div class="text-center md:text-left">
+          <div class="text-center">
             <p class="text-sm tracking-widest mb-4">Un événement organisé par</p>
-            <img :src="logoArcanesEvents" alt="Arcanes Events" class="w-48 mx-auto md:mx-0" />
-            <div class="flex justify-center md:justify-start gap-4 mt-4">
+            <img :src="logoArcanesEvents" alt="Arcanes Events" class="w-48 mx-auto mb-4" />
+            <div class="flex items-center justify-center gap-4">
               <a href="https://www.linkedin.com/company/102587804/admin/dashboard/" target="_blank" rel="noopener" class="text-white hover:opacity-75">
                 <img :src="iconLinkedin" alt="LinkedIn" class="w-6 h-6" />
               </a>
@@ -25,22 +25,23 @@
 
           <!-- Colonne 2: La Sirène -->
           <div class="flex justify-center">
-            <div class="w-48 h-24 bg-white rounded-lg p-4 flex items-center justify-center">
+            <a href="https://la-sirene.fr" target="_blank" rel="noopener" class="w-48 h-24 bg-white rounded-lg p-4 flex items-center justify-center hover:opacity-75 transition-opacity">
               <img :src="logoLaSirene" alt="La Sirène" class="max-w-full max-h-full" style="object-fit: contain;" />
-            </div>
+            </a>
           </div>
 
           <!-- Colonne 3: Port Atlantique -->
           <div class="flex justify-center">
-            <div class="w-48 h-24 bg-white rounded-lg p-4 flex items-center justify-center">
+            <a href="https://www.larochelle.port.fr" target="_blank" rel="noopener" class="w-48 h-24 bg-white rounded-lg p-4 flex items-center justify-center hover:opacity-75 transition-opacity">
               <img :src="logoPortAtlantique" alt="Port Atlantique" class="max-w-full max-h-full" style="object-fit: contain;" />
-            </div>
+            </a>
           </div>
 
           <!-- Colonne 4: UTLR -->
           <div class="text-center md:text-right">
             <p class="text-2xl md:text-xl tracking-widest font-bold">UTLR<span class="registered">®</span> 2025</p>
             <p class="text-lg md:text-l tracking-widest mt-2">LA ROCHELLE</p>
+            <router-link to="/rgpd" class="text-sm tracking-widest mt-4 inline-block hover:underline">Politique de confidentialité</router-link>
           </div>
         </div>
       </div>

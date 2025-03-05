@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
+import RGPD from '../views/RGPD.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,6 +16,11 @@ const router = createRouter({
       name: 'home',
       component: Home,
       meta: { requiresAuth: true }
+    },
+    {
+      path: '/rgpd',
+      name: 'rgpd',
+      component: RGPD
     }
   ]
 })
