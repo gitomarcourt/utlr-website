@@ -11,7 +11,8 @@
           muted
           playsinline
         >
-          <source src="../assets/videos/hero-background.webm" type="video/mp4">
+          <source src="../assets/videos/hero-background.webm" type="video/webm">
+          <source src="../assets/videos/hero-background.mp4" type="video/mp4">
         </video>
       </div>
 
