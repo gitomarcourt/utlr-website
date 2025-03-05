@@ -1,38 +1,38 @@
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNI_mwQD59QOf9KdnyVdu_kHzYflH3fkS20LsgmLH-E2BJ1jis7dImu9O5im2X9_G5/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyA7D-u-3Z51wHwblCjNTYsq7ROQYSy1jDIP_-v1LRmflsFu86-ZqAAhr4wbxJNPahN/exec';
 
-function isValidEmail(email: string): boolean {
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailRegex.test(email);
+function isValidEmail(email:string) {
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return emailRegex.test(email);
 }
 
-export async function subscribeToNewsletter(email: string) {
-    if (!isValidEmail(email)) {
-        throw new Error('Adresse email invalide');
+export async function subscribeToNewsletter(email:string) {
+  if (!isValidEmail(email)) {
+    throw new Error('Adresse email invalide');
+  }
+
+  try {
+    const response = await fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'cors',  // Assurez-vous que le mode est "cors"
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email })
+    });
+
+    if (!response.ok) {
+      throw new Error('Erreur réseau');
     }
 
-    try {
-        const response = await fetch(GOOGLE_SCRIPT_URL, {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email })
-        });
-
-        if (!response.ok) {
-            throw new Error('Erreur réseau');
-        }
-
-        const data = await response.json();
-        
-        if (data.status === 'error') {
-            throw new Error(data.message);
-        }
-
-        return data;
-    } catch (error) {
-        console.error('Erreur lors de l\'inscription:', error);
-        throw error;
+    const data = await response.json();
+    
+    if (data.status === 'error') {
+      throw new Error(data.message);
     }
+
+    return data;
+  } catch (error) {
+    console.error('Erreur lors de l\'inscription:', error);
+    throw error;
+  }
 }
