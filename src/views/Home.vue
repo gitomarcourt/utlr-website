@@ -53,7 +53,7 @@
               <div class="text-6xl sm:text-7xl md:text-8xl font-bold tracking-tighter leading-none mb-2 flex items-center justify-center">
                 <span class="number-animation" ref="distance1">6</span>
                 <span class="text-xl sm:text-2xl mx-2">&</span>
-                <span class="number-animation" ref="distance2">11</span>
+                <span class="number-animation" ref="distance2">12</span>
               </div>
               <div class="text-lg sm:text-xl tracking-widest">
                 KILOMÈTRES

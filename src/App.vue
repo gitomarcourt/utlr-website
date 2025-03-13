@@ -41,7 +41,10 @@
           <div class="text-center md:text-right">
             <p class="text-2xl md:text-xl tracking-widest font-bold">UTLR<span class="registered">®</span> 2025</p>
             <p class="text-lg md:text-l tracking-widest mt-2">LA ROCHELLE</p>
-            <router-link to="/rgpd" class="text-sm tracking-widest mt-4 inline-block hover:underline">Politique de confidentialité</router-link>
+            <div class="flex flex-col md:items-end mt-4 space-y-2">
+              <router-link to="/rgpd" class="text-sm tracking-widest hover:underline">Politique de confidentialité</router-link>
+              <router-link to="/mentions-legales" class="text-sm tracking-widest hover:underline">Mentions légales</router-link>
+            </div>
           </div>
         </div>
       </div>
