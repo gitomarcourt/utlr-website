@@ -20,7 +20,9 @@
       <div class="relative z-10 h-full flex items-center justify-center px-4">
         <div class="text-center">
           <h1 class="text-[5rem] xs:text-[6rem] sm:text-[8rem] md:text-[12rem] lg:text-[16rem] xl:text-[20rem] font-bold tracking-tighter text-black leading-none">
-            UTLR<span class="registered">®</span>
+            <span class="relative inline-flex items-start">
+              UTLR<span class="registered-hero" aria-hidden="true">®</span>
+            </span>
           </h1>
         </div>
       </div>
@@ -182,5 +184,32 @@ input::placeholder {
   font-size: 0.3em;
   font-weight: normal;
   opacity: 0.5;
+}
+
+.registered-hero {
+  font-size: 0.22em;
+  font-weight: normal;
+  opacity: 0.8;
+  margin-left: 0.2em;
+  vertical-align: text-top;
+  line-height: 1;
+  position: relative;
+  top: 0.6em;
+}
+
+/* Styles spécifiques pour Safari mobile */
+@supports (-webkit-touch-callout: none) {
+  .registered-hero {
+    font-size: 0.24em;
+    top: 0.5em;
+  }
+}
+
+/* Ajustements pour les petits écrans */
+@media (max-width: 640px) {
+  .registered-hero {
+    font-size: 0.24em;
+    top: 0.5em;
+  }
 }
 </style>
