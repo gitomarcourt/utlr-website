@@ -9,7 +9,7 @@
           v-model="email"
           type="email"
           required
-          pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+          pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,64}"
           title="Veuillez entrer une adresse email valide"
           placeholder="Votre adresse email"
           class="w-full px-4 sm:px-6 py-3 sm:py-4 border-2"
@@ -71,7 +71,7 @@ const emailError = ref('')
 const rgpdAccepted = ref(false)
 
 const validateEmail = () => {
-  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,64}$/
   if (!email.value) {
     emailError.value = 'L\'adresse email est requise'
   } else if (!emailRegex.test(email.value)) {
